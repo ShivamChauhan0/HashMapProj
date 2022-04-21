@@ -1,0 +1,2 @@
+Collisions using hash 2: -nan, and collision handling 2: -nan
+
