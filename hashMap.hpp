@@ -1,6 +1,4 @@
-/*
-  Shivam Chauhan and Estevan Bedolla 
-  */ 
+
 #ifndef HASHMAP_HPP_
 #define HASHMAP_HPP_
 
