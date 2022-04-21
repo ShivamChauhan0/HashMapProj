@@ -35,7 +35,7 @@ void hashNode::addValue(string v) {
 	// adding a valu to the end of the value array associated 
 	// with a key
   int count = 0;
-  while(values[count] != "") {
+  while(values[count] != "") { // finds last empty value
     count++;
   }
   values[count] = v;
@@ -54,7 +54,7 @@ void hashNode::dblArray() {
   valuesSize = valuesSize*2;
   string *values2 = new string[valuesSize];
   for(int i =0; i<currSize; i++) {
-    values2[i] = values[i];
+    values2[i] = values[i]; // copies over
   }
   delete values;
   values = values2;
