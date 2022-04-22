@@ -40,6 +40,7 @@ void hashNode::addValue(string v) {
   }
   values[count] = v;
   currSize++;
+  cerr << currSize << "/" << valuesSize << endl;
   if(currSize == valuesSize) {
     dblArray();
   }
@@ -55,9 +56,13 @@ void hashNode::dblArray() {
   string *values2 = new string[valuesSize];
   for(int i =0; i<(currSize); i++) {
     values2[i] = values[i]; // copies over
+    cerr << i << endl;
   }
-  delete values;
+  cerr << "deleting original values array" << endl;
+  delete[] values;
+  cerr << "original values deleted" << endl;
   values = values2;
+  cerr << "new values done" << endl;
 }
 
 string hashNode::getRandValue() {

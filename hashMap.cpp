@@ -27,9 +27,9 @@ void hashMap::addKeyValue(string k, string v) {
     map[index] = new hashNode(k,v);
     numKeys++;
   }
-    cout << "print" << endl;
+    cerr << "print" << endl;
   map[index]->addValue(v);
-    cout << "print2" << endl;
+    cerr << "print2" << endl;
   if(first == "") {
     first = k;
   }
