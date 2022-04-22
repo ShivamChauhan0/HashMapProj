@@ -15,7 +15,6 @@ makeSeuss::makeSeuss(string f1,string f2,bool hash1, bool coll1) {
 	ht = new hashMap(hash1,coll1);
 	newfile = f2;
 	fn = f1;
-
 	readFile();
 	writeFile();
 }
@@ -24,12 +23,12 @@ void makeSeuss::readFile() {
 	string key = "";
 	string value="";
 	infile>> key;
-
+  
 	infile >> key;
 	ht->first = key;
 
 	while (infile >> value) {          // loop getting single characters
-		//cout << key <<": " << value << endl;
+		cout << key <<": " << value << endl;
 		ht->addKeyValue(key,value);
 		key = value;
 		value = "";

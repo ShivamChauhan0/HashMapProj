@@ -53,7 +53,7 @@ void hashNode::dblArray() {
 	//here.
   valuesSize = valuesSize*2;
   string *values2 = new string[valuesSize];
-  for(int i =0; i<currSize; i++) {
+  for(int i =0; i<(currSize); i++) {
     values2[i] = values[i]; // copies over
   }
   delete values;

@@ -27,9 +27,9 @@ void hashMap::addKeyValue(string k, string v) {
     map[index] = new hashNode(k,v);
     numKeys++;
   }
-  else if(map[index] !=NULL && map[index]->keyword.compare(k) == 0) {
-    map[index]->addValue(v);
-  }
+    cout << "print" << endl;
+  map[index]->addValue(v);
+    cout << "print2" << endl;
   if(first == "") {
     first = k;
   }
@@ -84,6 +84,9 @@ int hashMap::getIndex(string k) {
     return index;
   }
   }
+/* 
+this calchash2 function basically uses a base 27 rule, one of the most efficient hash functions to calculate the most efficient index for placement of the hash. it uses the first 3 letters (or less) and sums up using this rule and then mods it to be within the correct range and makes it the hash map size. 
+*/ 
 int hashMap::calcHash2(string k){
   int len = k.size();
   int sum = 0;
@@ -100,6 +103,9 @@ int hashMap::calcHash2(string k){
   int hash = sum%mapSize;
   return hash;
 }
+/*
+this calchash1 function basically uses a power hash of only the first 3 letters (or less). it sums up using a power rule and then mods it to be within the correct range and make it the hash map size. 
+  */ 
 int hashMap::calcHash1(string k){
   int len = k.size();
   int sum = 0;
@@ -160,6 +166,9 @@ void hashMap::reHash() {
     }
   }
 }
+/*
+this collision1 function is a linearly probing operation, when a collision occurs, in other words, when a new key maps to a key that is already mapped. it then linearly searches for the next free location. however, it is not as efficient because it can cause clusters between certain locations. 
+  */ 
 int hashMap::coll1(int h, int i, string k) {
   if(h+1 == mapSize) {
     return 0;
@@ -168,6 +177,9 @@ int hashMap::coll1(int h, int i, string k) {
     return h+1;
   }
 }
+/*
+this collision2 function is a quadratic probing opperation, when a collision occurs, in other words, when a new key maps to a key that is already mapped. it then quadratically searches for the next free location. because it squares the number and generates quadaratic numbers, it causes less clusters than linear probing and is slightly more efficient. 
+  */ 
 int hashMap::coll2(int h, int i, string k) {
   int changednum = (i+1)^2;
   if(h+changednum >= mapSize) {
@@ -191,5 +203,3 @@ void hashMap::printMap() {
 		}
 	}
 }
-
-
